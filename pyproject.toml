@@ -21,10 +21,11 @@ license = "MIT"
 license-file = ["LICEN[CS]E.*"]
 
 [project.urls]
-Homepage = "https://github.com"
-Documentation = "https://readthedocs.org"
-Repository = "https://github.com"
-Changelog = "https://github.com"
+Homepage = "https://github.com/fabioantonioastore/br-docs"
+Issues = "https://github.com/fabioantonioastore/br-docs/issues"
+Documentation = "https://github.com/fabioantonioastore/br-docs"
+Repository = "https://github.com/fabioantonioastore/br-docs"
+Changelog = "https://github.com/fabioantonioastore/br-docs"
 
 [tool.hatch.build.targets.sdist]
 packages = ["br-docs"]

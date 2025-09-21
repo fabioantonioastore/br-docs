@@ -1,1 +1,1 @@
-from . import cpf
+from . import cpf, cnpj

@@ -88,24 +88,26 @@ def __generate_verificator_digits(cpf) -> str:
     return cpf
 
 
-def generate() -> str:
+def generate(masked: bool = False) -> str:
     cpf = ""
     for _ in range(9):
         cpf += str(randint(0, 9))
     cpf = __generate_verificator_digits(cpf)
     if cpf.count(cpf[0]) != 11:
+        if masked:
+            return mask(cpf)
         return cpf
     return generate()
 
 
-def gen_generate() -> Generator:
+def gen_generate(masked: bool = False) -> Generator:
     while True:
-        yield generate()
+        yield generate(masked)
 
 
-async def agen_generate() -> AsyncGenerator:
+async def agen_generate(masked: bool = False) -> AsyncGenerator:
     while True:
-        yield generate()
+        yield generate(masked)
 
 
 CPF = Annotated[str, AfterValidator(validate)]
