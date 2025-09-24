@@ -1,5 +1,8 @@
 from br_docs import cpf
+from br_docs.typing import CNPJ
 
+
+cnpj: CNPJ
 
 cpfs = ["11111111111", "28412832103", "21037322002"]
 

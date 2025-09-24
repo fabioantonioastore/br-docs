@@ -1,5 +1,8 @@
 from br_docs import cnpj
+from br_docs.typing import CPF
 
+
+cpf_type: CPF
 
 cnpjs = [
     "11444777000161",

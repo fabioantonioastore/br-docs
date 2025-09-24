@@ -1,13 +1,13 @@
 from random import randint
-from typing import Generator
+from typing import AsyncGenerator
 
 
-def is_masked(cpf: str) -> bool:
+async def is_masked(cpf: str) -> bool:
     return "." in cpf and "-" in cpf
 
 
-def mask(cpf: str) -> str:
-    if is_masked(cpf):
+async def mask(cpf: str) -> str:
+    if await is_masked(cpf):
         return cpf
     new_cpf = ""
     digit_position = 0
@@ -23,8 +23,8 @@ def mask(cpf: str) -> str:
     return new_cpf
 
 
-def remove_mask(cpf: str) -> str:
-    if not is_masked(cpf):
+async def remove_mask(cpf: str) -> str:
+    if not await is_masked(cpf):
         return cpf
     new_cpf = ""
     for digit in cpf:
@@ -54,13 +54,13 @@ def __is_valid(cpf: str) -> bool:
     return str(first_result) == cpf[-2] and str(second_result) == cpf[-1]
 
 
-def is_valid(cpf: str) -> bool:
-    cpf = remove_mask(cpf)
+async def is_valid(cpf: str) -> bool:
+    cpf = await remove_mask(cpf)
     return __is_valid(cpf)
 
 
-def validate(cpf: str) -> str:
-    cpf = remove_mask(cpf)
+async def validate(cpf: str) -> str:
+    cpf = await remove_mask(cpf)
     if __is_valid(cpf):
         return cpf
     raise "Invalid CPF"
@@ -86,18 +86,18 @@ def __generate_verificator_digits(cpf) -> str:
     return cpf
 
 
-def generate(masked: bool = False) -> str:
+async def generate(masked: bool = False) -> str:
     cpf = ""
     for _ in range(9):
         cpf += str(randint(0, 9))
     cpf = __generate_verificator_digits(cpf)
     if cpf.count(cpf[0]) != 11:
         if masked:
-            return mask(cpf)
+            return await mask(cpf)
         return cpf
-    return generate()
+    return await generate()
 
 
-def gen_generate(masked: bool = False) -> Generator:
+async def gen_generate(masked: bool = False) -> AsyncGenerator:
     while True:
-        yield generate(masked)
+        yield await generate(masked)

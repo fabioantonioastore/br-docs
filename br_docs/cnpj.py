@@ -1,7 +1,5 @@
 from random import randint
-from typing import Annotated, Generator, AsyncGenerator
-
-from pydantic import AfterValidator
+from typing import Generator
 
 
 def is_masked(cnpj: str) -> bool:
@@ -103,11 +101,3 @@ def generate(masked: bool = False) -> str:
 def gen_generate(masked: bool = False) -> Generator:
     while True:
         yield generate(masked)
-
-
-async def agen_generate(masked: bool = False) -> AsyncGenerator:
-    while True:
-        yield generate(masked)
-
-
-CNPJ = Annotated[str, AfterValidator(validate)]
