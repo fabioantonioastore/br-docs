@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "br-docs"
-version = "0.0.4"
+version = "0.0.5"
 dependencies = [
     "pydantic"
 ]
@@ -28,7 +28,7 @@ Repository = "https://github.com/fabioantonioastore/br-docs"
 Changelog = "https://github.com/fabioantonioastore/br-docs"
 
 [tool.hatch.build.targets.sdist]
-packages = ["br-docs"]
+packages = ["br_docs"]
 
 [tool.hatch.build.targets.wheel]
-packages = ["br-docs"]
+packages = ["br_docs"]
