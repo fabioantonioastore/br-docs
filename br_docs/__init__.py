@@ -1,1 +1,1 @@
-from . import cpf, cnpj, asynchronous, typing
+from . import cpf, cnpj, typing

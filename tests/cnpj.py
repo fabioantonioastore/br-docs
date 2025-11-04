@@ -4,10 +4,7 @@ from br_docs.typing import CPF
 
 cpf_type: CPF
 
-cnpjs = [
-    "11444777000161",
-    "10298312031283"
-]
+cnpjs = ["11444777000161", "10298312031283"]
 
 for c in cnpjs:
     print(cnpj.is_valid(c))

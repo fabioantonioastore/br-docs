@@ -55,6 +55,7 @@ def __is_valid(cnpj: str) -> bool:
         second_result = 11 - second_result
     return str(first_result) == cnpj[-2] and str(second_result) == cnpj[-1]
 
+
 def is_valid(cnpj: str) -> bool:
     cnpj = remove_mask(cnpj)
     return __is_valid(cnpj)
